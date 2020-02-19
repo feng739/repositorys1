@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <script src="../js/jquery-3.3.1.js" type="text/javascript" charset="utf-8"></script>
+    <script type="text/javascript">
+        $(function () {
+            //Jquery遍历的第一种方式
+            /* var citys = $("li");
+             citys.each(function () {
+                 alert(this.innerHTML);
+             });*/
+            //获取索引和标签对象
+            /*   var citys = $("li");
+             citys.each(function (index,element) {
+                  alert(index+":"+element.innerHTML);
+              });*/
+
+            //Jquery遍历的第二种方式
+         /*  var citys = $("li");
+           $.each(citys,function () {
+               alert(this.innerHTML)
+           })*/
+            //this是JS对象,innerHTML是JS方法,转换成Jquery对象调用方法如下:
+            //获取索引和标签对象和第一种方式一样
+
+            //for(元素对象 of 容器对象){}
+            //容器对象:要遍历的数组对象
+            //元素对象:遍历出来的元素对象
+            var citys = $("li");
+            for(lis of citys){
+                alert($(lis).html())
+            }
+
+        });
+
+    </script>
+</head>
+<body>
+<ul id="city">
+    <li>北京</li>
+    <li>上海</li>
+    <li>天津</li>
+    <li>重庆</li>
+</ul>
+</body>
+</html>

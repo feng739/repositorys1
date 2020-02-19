@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>图片切换案例</title>
+    <meta charset="UTF-8">
+    <script src="../js/jquery-3.3.1.js"></script>
+</head>
+<body>
+<script>
+    var imgpath;
+    var sid;
+    var arr=["../images/1.jpg",
+        "../images/2.jpg",
+        "../images/3.jpg",
+        "../images/4.jpg",
+        "../images/5.jpg",
+        "../images/6.jpg",
+        "../images/7.jpg"]
+
+    $(function () {
+        $("#starid").prop("disabled",false)
+        $("#stopid").prop("disabled",true)
+        $("#starid").click(function () {
+            $("#starid").prop("disabled",true)
+            $("#stopid").prop("disabled",false)
+            sid=setInterval(function () {
+                 index = Math.floor(Math.random()*7);
+                 imgpath = arr[index];
+                $("#img1id").prop("src",imgpath);
+            },200);
+        })
+
+
+
+        $("#stopid").click(function () {
+            $("#starid").prop("disabled",false)
+            $("#stopid").prop("disabled",true)
+            clearInterval(sid);
+            $("#img2id").prop("src",imgpath);
+        })
+    })
+
+
+
+</script>>
+
+
+<div>
+    <img src="../images/1.jpg" id="img1id" style="width: 150px;height: 100px;">
+    <img src="../images/1.jpg" id="img2id" style="width: 800px;height: 500px;">
+
+
+</div>>
+
+<input type="button" id="starid" value="开始" style="width: 150px;height: 150px;frod-size: 22px">
+<input type="button" id="stopid" value="结束" style="width: 150px;height: 150px">
+
+</body>
+</html>
